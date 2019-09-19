@@ -1,0 +1,76 @@
+package com.example.GetSaucedApp.models;
+
+import com.sun.xml.internal.bind.v2.TODO;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+/**
+ * Created by Christopher Alex Chable'
+ */
+@Entity
+public class HotSauce {
+
+    // Fields: ID, BRAND, NAME, DESCRIPTION
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @NotNull
+    @Size(min=1, message = "Please enter a brand name.")
+    private String brand;
+
+    @NotNull
+    @Size(min=1, message = "Please enter the name of the hot sauce.")
+    private String name;
+
+    @NotNull
+    @Size(min=1, message = "Description cannot be empty.")
+    private String description;
+
+    //TODO: ADD RATING SYSTEM (TASTE)
+    //TODO: ADD RATING SYSTEM (SPICINESS)
+
+    //Constructors:
+    public HotSauce(){
+
+    }
+
+    public HotSauce(String brand, String name, String description){
+        this.brand = brand;
+        this.name = name;
+        this.description = description;
+
+    }
+    //Getters and Setters: ID, BRAND, NAME, DESCRIPTION
+    public int getId(){
+        return id;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand() {
+        this.brand = brand;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
