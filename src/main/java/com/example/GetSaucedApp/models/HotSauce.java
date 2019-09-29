@@ -1,12 +1,12 @@
 package com.example.GetSaucedApp.models;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Optional;
 
 /**
  * Created by Christopher Alex Chable'
@@ -19,9 +19,8 @@ public class HotSauce {
     @GeneratedValue
     private int id;
 
-    @NotNull
-    @Size(min=1, message = "Please enter a brand name.")
-    private String brand;
+    @ManyToOne
+    private Brand brand;
 
     @NotNull
     @Size(min=1, message = "Please enter the name of the hot sauce.")
@@ -31,16 +30,16 @@ public class HotSauce {
     @Size(min=1, message = "Description cannot be empty.")
     private String description;
 
-    //TODO: ADD RATING SYSTEM (TASTE)
-    //TODO: ADD RATING SYSTEM (SPICINESS)
+    //TODO: ADD A TYPE System (examples bbq, salsa, hot sauce)***
+    //TODO: ADD AN INGREDIENTS LISTS (water, vinegar, etc.)*
+    //TODO: ADD RATING SYSTEM (TASTE)*****
+    //TODO: ADD RATING SYSTEM (SPICINESS)*****
 
     //Constructors:
     public HotSauce(){
-
     }
 
-    public HotSauce(String brand, String name, String description){
-        this.brand = brand;
+    public HotSauce(String name, String description){
         this.name = name;
         this.description = description;
 
@@ -50,18 +49,16 @@ public class HotSauce {
         return id;
     }
 
-    public String getBrand() {
+    public Brand getBrand() {
         return brand;
     }
-
-    public void setBrand() {
-        this.brand = brand;
+    public void setBrand(Optional<Brand> brand) {
+        this.brand = this.brand;
     }
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
