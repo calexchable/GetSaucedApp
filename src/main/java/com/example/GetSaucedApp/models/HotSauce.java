@@ -27,8 +27,9 @@ public class HotSauce {
     @Size(min=1, message = "Description cannot be empty.")
     private String description;
 
-    @ManyToOne
-    private Brand brand;
+    @NotNull
+    @Size(min=1, message = "Brand Name cannot be empty.")
+    private String brand;
 
     //TODO: ADD A TYPE System (examples bbq, salsa, hot sauce)***
     //TODO: ADD AN INGREDIENTS LISTS (water, vinegar, etc.)*
@@ -65,11 +66,12 @@ public class HotSauce {
         this.description = description;
     }
 
-    public Brand getBrand() {
+    public String getBrand(){
         return brand;
     }
-    public void setBrand(Optional<Brand> brand) {
-        this.brand = this.brand;
+
+    public void setBrand(String brand){
+        this.brand = brand;
     }
 
 }

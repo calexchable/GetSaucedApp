@@ -1,8 +1,6 @@
 package com.example.GetSaucedApp.controllers;
 
-import com.example.GetSaucedApp.models.Brand;
 import com.example.GetSaucedApp.models.HotSauce;
-import com.example.GetSaucedApp.models.data.BrandDao;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,9 +25,6 @@ public class SauceController {
     @Autowired
     private HotSauceDao hotSauceDao;
 
-    @Autowired
-    private BrandDao brandDao;
-
 //TODO: WRITE CONTROLLER TO ACCESS AND INPUT THE THINGS.
     // HOT SAUCE
     // Request Path to index: /hot-sauce
@@ -48,7 +43,6 @@ public class SauceController {
     public String addHotSauces(Model model) {
         model.addAttribute("title", "Add Hot Sauce");
         model.addAttribute(new HotSauce());
-        model.addAttribute("brands", brandDao.findAll());
 
         return "hot-sauce/add";
     }
@@ -56,15 +50,13 @@ public class SauceController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String addHotSauces(@ModelAttribute @Valid HotSauce newHotSauce,
                                Errors errors,
-                               @RequestParam int brandId, Model model)
+                               Model model)
     {
         if (errors.hasErrors()){
             model.addAttribute("title", "Add Hot Sauces");
             return "hot-sauce/add";
         }
 
-        Optional<Brand> brand = brandDao.findById(brandId);
-        newHotSauce.setBrand(brand);
         hotSauceDao.save(newHotSauce);
         return "redirect:";
     }

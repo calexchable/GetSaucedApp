@@ -20,7 +20,7 @@
     </tr>
 
     <tr th:each="hotSauce : ${hotSauces}">
-        <td th:text="${hotSauce.brand.getName()}"></td>
+        <td th:text="${hotSauce.brand}"></td>
         <td th:text="${hotSauce.name}"></td>
         <td th:text="${hotSauce.description}"></td>
     </tr>
