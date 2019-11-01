@@ -14,13 +14,10 @@ import java.util.Optional;
 @Entity
 public class HotSauce {
 
-    // Fields: ID, BRAND, NAME, DESCRIPTION
+    // Fields: ID, NAME, DESCRIPTION, BRAND
     @Id
     @GeneratedValue
     private int id;
-
-    @ManyToOne
-    private Brand brand;
 
     @NotNull
     @Size(min=1, message = "Please enter the name of the hot sauce.")
@@ -29,6 +26,9 @@ public class HotSauce {
     @NotNull
     @Size(min=1, message = "Description cannot be empty.")
     private String description;
+
+    @ManyToOne
+    private Brand brand;
 
     //TODO: ADD A TYPE System (examples bbq, salsa, hot sauce)***
     //TODO: ADD AN INGREDIENTS LISTS (water, vinegar, etc.)*
@@ -49,19 +49,13 @@ public class HotSauce {
         return id;
     }
 
-    public Brand getBrand() {
-        return brand;
-    }
-    public void setBrand(Optional<Brand> brand) {
-        this.brand = this.brand;
-    }
-
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
     }
+
 
     public String getDescription() {
         return description;
@@ -70,4 +64,12 @@ public class HotSauce {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Brand getBrand() {
+        return brand;
+    }
+    public void setBrand(Optional<Brand> brand) {
+        this.brand = this.brand;
+    }
+
 }

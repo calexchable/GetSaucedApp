@@ -30,8 +30,8 @@ public class SauceController {
     @Autowired
     private BrandDao brandDao;
 
-//TODO: WRITE CONTROLLER TO ACCESS AND INPUT THE THINGS ADD FORM.
-
+//TODO: WRITE CONTROLLER TO ACCESS AND INPUT THE THINGS.
+    // HOT SAUCE
     // Request Path to index: /hot-sauce
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -63,11 +63,15 @@ public class SauceController {
             return "hot-sauce/add";
         }
 
-        Optional<Brand> sauceBrand = brandDao.findById(brandId);
-        newHotSauce.setBrand(sauceBrand);
+        Optional<Brand> brand = brandDao.findById(brandId);
+        newHotSauce.setBrand(brand);
         hotSauceDao.save(newHotSauce);
         return "redirect:";
     }
 
 
+//TODO Add a section for CASERA or Homemade sauces.
+    //This will have location and attempt to have recipes.
 }
+
+
