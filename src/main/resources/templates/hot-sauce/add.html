@@ -29,13 +29,28 @@
 
     <div class="form-group">
         <label th:for="taste">Rate The Taste: </label>
-        <input class="form-control" th:field="*{taste}" />
-
+        <select id="taste" class="form-control" name="taste">
+            <option value="">Select Below</option>
+            <option value="0">0 - Yuck! What Did I just Eat! </option>
+            <option value="1">1 - Hmm, Maybe I should at least be proud to have tried this. </option>
+            <option value="2">2 - Okay, I think I can hang with this sauce. But not to often. </option>
+            <option value="3">3 - Yum, I'll try this again. </option>
+            <option value="4">4 - Super Yum, Put it on the grocery list.</option>
+            <option value="5">5 - I think I could put this on everything. </option>
+        </select>
     </div>
 
     <div class="form-group">
         <label th:for="spice">How Spicy: </label>
-        <input class="form-control" th:field="*{spice}" />
+        <select id="spice" class="form-control" name="spice">
+            <option value="">Select Below</option>
+            <option value="0">0 - No Sensation... is this sauce water?</option>
+            <option value="1">1 - I can feel my tongue tingle.</option>
+            <option value="2">2 - I'm feeling the heat. </option>
+            <option value="3">3 - Feeling Warm. </option>
+            <option value="4">4 - Woah, coughing fit hot. </option>
+            <option value="5">5 - My mouth has gone numb... AND I'm sweating!</option>
+        </select>
     </div>
 
     <input type="submit" value="Add Hot Sauce!" />
