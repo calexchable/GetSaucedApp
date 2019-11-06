@@ -9,32 +9,30 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 /**
  * Created by Christopher Alex Chable'
  */
 
 @Controller
-@RequestMapping("hot-sauce")
+@RequestMapping(value = "hot-sauces")
 public class SauceController {
 
     @Autowired
     private HotSauceDao hotSauceDao;
 
 //TODO: WRITE CONTROLLER TO ACCESS AND INPUT THE THINGS.
-    // HOT SAUCE
-    // Request Path to index: /hot-sauce
+    // HOT SAUCES
+    // Request Path to index: /hot-sauces
     @RequestMapping(value = "")
     public String index(Model model) {
 
         model.addAttribute("hotSauces", hotSauceDao.findAll());
         model.addAttribute("title", "Get Sauced!");
 
-        return "hot-sauce/index";
+        return "hot-sauces/index";
     }
 
     // Request Path to add hot sauces: /hot-sauce/add
@@ -44,7 +42,7 @@ public class SauceController {
         model.addAttribute("title", "Add Hot Sauce");
         model.addAttribute(new HotSauce());
 
-        return "hot-sauce/add";
+        return "hot-sauces/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
@@ -53,8 +51,8 @@ public class SauceController {
                                Model model)
     {
         if (errors.hasErrors()){
-            model.addAttribute("title", "Add Hot Sauces");
-            return "hot-sauce/add";
+            model.addAttribute("title", "Add Hot Sauce");
+            return "hot-sauces/add";
         }
 
         hotSauceDao.save(newHotSauce);
