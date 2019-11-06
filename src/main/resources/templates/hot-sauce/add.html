@@ -27,6 +27,17 @@
         <span th:errors="*{description}" class="error"></span>
     </div>
 
+    <div class="form-group">
+        <label th:for="taste">Rate The Taste: </label>
+        <input class="form-control" th:field="*{taste}" />
+
+    </div>
+
+    <div class="form-group">
+        <label th:for="spice">How Spicy: </label>
+        <input class="form-control" th:field="*{spice}" />
+    </div>
+
     <input type="submit" value="Add Hot Sauce!" />
 </form>
 

@@ -31,6 +31,12 @@ public class HotSauce {
     @Size(min=1, message = "Brand Name cannot be empty.")
     private String brand;
 
+    @NotNull
+    private Integer taste;
+
+    @NotNull
+    private Integer spice;
+
     //TODO: ADD A TYPE System (examples bbq, salsa, hot sauce)***
     //TODO: ADD AN INGREDIENTS LISTS (water, vinegar, etc.)*
     //TODO: ADD RATING SYSTEM (TASTE)*****
@@ -72,6 +78,22 @@ public class HotSauce {
 
     public void setBrand(String brand){
         this.brand = brand;
+    }
+
+    public Integer getTaste(){
+        return taste;
+    }
+
+    public void setTaste(Integer taste){
+        this.taste = taste;
+    }
+
+    public Integer getSpice(){
+        return spice;
+    }
+
+    public void setSpice(Integer spice){
+        this.spice = spice;
     }
 
 }
