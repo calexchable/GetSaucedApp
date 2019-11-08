@@ -59,6 +59,14 @@ public class SauceController {
         return "redirect:";
     }
 
+    // Request path to search: /hot-sauces/search
+
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    public String searchHotSauces(Model model) {
+        model.addAttribute("title", "Search the Sauces");
+
+        return "hot-sauces/search";
+    }
 
 //TODO Add a section for CASERA or Homemade sauces.
     //This will have location and attempt to have recipes.

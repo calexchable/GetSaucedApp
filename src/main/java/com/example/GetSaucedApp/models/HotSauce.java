@@ -3,10 +3,8 @@ package com.example.GetSaucedApp.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Optional;
 
 /**
  * Created by Christopher Alex Chable'
@@ -39,8 +37,6 @@ public class HotSauce {
 
     //TODO: ADD A TYPE System (examples bbq, salsa, hot sauce)***
     //TODO: ADD AN INGREDIENTS LISTS (water, vinegar, etc.)*
-    //TODO: ADD RATING SYSTEM (TASTE)*****
-    //TODO: ADD RATING SYSTEM (SPICINESS)*****
 
     //Constructors:
     public HotSauce(){
