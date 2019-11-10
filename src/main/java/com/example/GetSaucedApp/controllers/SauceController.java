@@ -9,6 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import sun.misc.Request;
 
 import javax.validation.Valid;
 
@@ -60,16 +61,19 @@ public class SauceController {
     }
 
     // Request path to search: /hot-sauces/search
-
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {
-        model.addAttribute("title", "Search the Sauces");
+        model.addAttribute("title", "Search the Sauces!");
 
         return "hot-sauces/search";
+
     }
+
 
 //TODO Add a section for CASERA or Homemade sauces.
     //This will have location and attempt to have recipes.
+
+
 }
 
 
