@@ -9,7 +9,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import sun.misc.Request;
 
 import javax.validation.Valid;
 
@@ -64,6 +63,7 @@ public class SauceController {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {
         model.addAttribute("title", "Search the Sauces!");
+        model.addAttribute(new SearchForm());
 
         return "hot-sauces/search";
 

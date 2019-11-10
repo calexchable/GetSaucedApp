@@ -7,8 +7,16 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
-<form method="post" style="max-width:600px;" th:object="${hotSauce}">
-    <div>Search the Sauces! </div>
+<form method="post" style="max-width:600px;" th:object="${hotSauce}" th:action="@{/hot-sauces/results}">
+
+    <h2>Search By: </h2>
+    <div>
+        <form>
+            <input type="radio" name="searchBy" value="brand">Brand <br>
+
+
+        </form>
+    </div>
 
 
 
