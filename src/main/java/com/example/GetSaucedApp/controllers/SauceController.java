@@ -63,7 +63,7 @@ public class SauceController {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {
         model.addAttribute("title", "Search the Sauces!");
-        model.addAttribute(new SearchForm());
+        //model.addAttribute(new SearchForm());
 
         return "hot-sauces/search";
 

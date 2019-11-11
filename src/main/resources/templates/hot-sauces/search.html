@@ -10,10 +10,15 @@
 <form method="post" style="max-width:600px;" th:object="${hotSauce}" th:action="@{/hot-sauces/results}">
 
     <h2>Search By: </h2>
-    <div>
+    <div class="form-group">
         <form>
-            <input type="radio" name="searchBy" value="brand">Brand <br>
+            <input type="radio" name="searchBy" value="brand" checked> Brand <br>
+            <input type="radio" name="searchBy" value="name"> Name <br>
 
+            <label th:for="searchTerm">Search Term: </label>
+            <input class="form-control" />
+
+            <input type="submit" value="Search" />
 
         </form>
     </div>
