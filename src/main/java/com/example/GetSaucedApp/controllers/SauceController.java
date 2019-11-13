@@ -1,6 +1,7 @@
 package com.example.GetSaucedApp.controllers;
 
 import com.example.GetSaucedApp.models.HotSauce;
+import com.example.GetSaucedApp.models.SearchForm;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,12 +64,29 @@ public class SauceController {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {
         model.addAttribute("title", "Search the Sauces!");
-        //model.addAttribute(new SearchForm());
+        model.addAttribute(new SearchForm());
 
         return "hot-sauces/search";
-
     }
 
+    @RequestMapping(value = "search", method = RequestMethod.POST)
+    public String searchHotSauces(@ModelAttribute @Valid SearchForm newSearchForm, HotSauce hotSauce, Errors errors, Model model) {
+        model.addAttribute("title", "Search the Sauces!");
+
+        if (errors.hasErrors()){
+            model.addAttribute("title", "Search the Sauces!");
+            return "hot-sauces/search";
+        }
+
+        return "redirect:";
+    }
+
+    @RequestMapping(value = "results", method = RequestMethod.GET)
+    public String resultsHotSauces(Model model) {
+        model.addAttribute("title", "Search Results");
+
+        return "hot-sauces/results";
+    }
 
 //TODO Add a section for CASERA or Homemade sauces.
     //This will have location and attempt to have recipes.
