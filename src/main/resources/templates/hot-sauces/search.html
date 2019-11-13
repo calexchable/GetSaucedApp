@@ -7,24 +7,22 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
-<form method="post" style="max-width:600px;" th:action="@{/hot-sauces/results}">
+<form method="post" style="max-width:600px;" th:object="${searchForm}">
 
     <h2>Search By: </h2>
     <div class="form-group">
-        <form>
-            <input th:for="searchTerm" type="radio" name="searchBy" value="brand"> Brand <br>
-            <input th:for="searchTerm" type="radio" name="searchBy" value="name"> Name <br>
-
-            <label th:for="searchTerm">Search Term: </label>
-            <input class="form-control" />
-
-            <input type="submit" value="Search" />
-
-        </form>
+        <input th:for="searchBy" type="radio" name="searchBy" value="brand"> Brand <br>
+        <input th:for="searchBy" type="radio" name="searchBy" value="name"> Name <br>
+        <span th:errors="*{searchBy}" class="error"></span>
     </div>
 
+    <div class="form-group">
+        <label th:for="searchTerm">Search Term: </label>
+        <input class="form-control" />
+        <span th:errors="*{searchTerm}" class="error"></span>
+    </div>
 
-
+    <input type="submit" value="Search" />
 
 </form>
 

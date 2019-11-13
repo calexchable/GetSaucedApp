@@ -5,11 +5,11 @@ import javax.validation.constraints.Size;
 
 public class SearchForm {
 
-    @NotNull
+    //@NotNull
     @Size(min=1, message = "Please select a search option.")
     private String searchBy;
 
-    @NotNull
+    //@NotNull
     @Size(min=1, message = "Please enter a search term.")
     private String searchTerm;
 

@@ -78,7 +78,7 @@ public class SauceController {
             return "hot-sauces/search";
         }
 
-        return "redirect:";
+        return "redirect:/hot-sauces/results";
     }
 
     @RequestMapping(value = "results", method = RequestMethod.GET)
