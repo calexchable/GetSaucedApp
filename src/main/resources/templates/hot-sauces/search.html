@@ -9,16 +9,11 @@
 
 <form method="post" style="max-width:600px;" th:object="${searchForm}">
 
-    <h2>Search By: </h2>
-    <div class="form-group">
-        <input th:for="searchBy" type="radio" name="searchBy" value="brand"> Brand <br>
-        <input th:for="searchBy" type="radio" name="searchBy" value="name"> Name <br>
-        <span th:errors="*{searchBy}" class="error"></span>
-    </div>
+    <h2>Search: </h2>
 
     <div class="form-group">
-        <label th:for="searchTerm">Search Term: </label>
-        <input class="form-control" />
+        <label th:for="searchTerm">Please type a Search Term: </label>
+        <input class="form-control" th:field="*{searchTerm}"/>
         <span th:errors="*{searchTerm}" class="error"></span>
     </div>
 

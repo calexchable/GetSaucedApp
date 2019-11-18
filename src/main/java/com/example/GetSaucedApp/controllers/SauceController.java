@@ -10,6 +10,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -36,30 +37,6 @@ public class SauceController {
         return "hot-sauces/index";
     }
 
-    // Request Path to add hot sauces: /hot-sauce/add
-
-    @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String addHotSauces(Model model) {
-        model.addAttribute("title", "Add Hot Sauce");
-        model.addAttribute(new HotSauce());
-
-        return "hot-sauces/add";
-    }
-
-    @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String addHotSauces(@ModelAttribute @Valid HotSauce newHotSauce,
-                               Errors errors,
-                               Model model)
-    {
-        if (errors.hasErrors()){
-            model.addAttribute("title", "Add Hot Sauce");
-            return "hot-sauces/add";
-        }
-
-        hotSauceDao.save(newHotSauce);
-        return "redirect:";
-    }
-
     // Request path to search: /hot-sauces/search
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {
@@ -70,7 +47,9 @@ public class SauceController {
     }
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    public String searchHotSauces(@ModelAttribute @Valid SearchForm newSearchForm, HotSauce hotSauce, Errors errors, Model model) {
+    public String searchHotSauces(@ModelAttribute @Valid SearchForm searchForm,
+                                  Errors errors,
+                                  Model model) {
         model.addAttribute("title", "Search the Sauces!");
 
         if (errors.hasErrors()){
@@ -82,8 +61,11 @@ public class SauceController {
     }
 
     @RequestMapping(value = "results", method = RequestMethod.GET)
-    public String resultsHotSauces(Model model) {
+
+    public String resultsHotSauces(@ModelAttribute @Valid SearchForm searchForm,
+                                   Model model, @RequestParam String searchTerm) {
         model.addAttribute("title", "Search Results");
+        model.addAttribute("searchTerm", searchTerm);
 
         return "hot-sauces/results";
     }
