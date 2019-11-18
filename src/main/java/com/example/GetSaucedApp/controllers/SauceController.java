@@ -38,13 +38,6 @@ public class SauceController {
     }
 
     // Request path to search: /hot-sauces/search
-    @RequestMapping(value = "search", method = RequestMethod.GET)
-    public String searchHotSauces(Model model) {
-        model.addAttribute("title", "Search the Sauces!");
-        model.addAttribute(new SearchForm());
-
-        return "hot-sauces/search";
-    }
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
     public String searchHotSauces(@ModelAttribute @Valid SearchForm searchForm,
