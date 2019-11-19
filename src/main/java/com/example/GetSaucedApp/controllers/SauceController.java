@@ -28,7 +28,7 @@ public class SauceController {
 //TODO: WRITE CONTROLLER TO ACCESS AND INPUT THE THINGS.
     // HOT SAUCES
     // Request Path to index: /hot-sauces
-    @RequestMapping(value = "")
+    @RequestMapping(value = "", method =RequestMethod.GET)
     public String index(Model model) {
 
         model.addAttribute("hotSauces", hotSauceDao.findAll());
