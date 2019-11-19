@@ -37,21 +37,6 @@ public class SauceController {
         return "hot-sauces/index";
     }
 
-    // Request path to search: /hot-sauces/search
-
-    @RequestMapping(value = "search", method = RequestMethod.POST)
-    public String searchHotSauces(@ModelAttribute @Valid SearchForm searchForm,
-                                  Errors errors,
-                                  Model model) {
-        model.addAttribute("title", "Search the Sauces!");
-
-        if (errors.hasErrors()){
-            model.addAttribute("title", "Search the Sauces!");
-            return "hot-sauces/search";
-        }
-
-        return "redirect:/hot-sauces/results";
-    }
 
     @RequestMapping(value = "results", method = RequestMethod.GET)
 
