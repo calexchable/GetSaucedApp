@@ -4,27 +4,36 @@ import javax.validation.constraints.Size;
 
 public class SearchForm {
 
-    private String searchBy;
+    //Search By Options
+    private SearchCategory[] searchCategories = SearchCategory.values();
+    private SearchCategory searchBy = SearchCategory.ALL;
 
+    // Keyword search string
     @Size(min=1, message = "Please enter a search term.")
     private String searchTerm;
+
 
     //Constructors:
     public SearchForm(){
 
     }
 
-    public SearchForm(String searchBy, String searchTerm){
+    public SearchForm(SearchCategory searchBy, String searchTerm){
         this.searchBy = searchBy;
         this.searchTerm = searchTerm;
     }
 
-    public String getSearchBy() {
+
+    public SearchCategory getSearchBy() {
         return searchBy;
     }
 
-    public void setSearchBy(String searchBy) {
+    public void setSearchBy(SearchCategory searchBy) {
         this.searchBy = searchBy;
+    }
+
+    public SearchCategory[] getSearchCategories() {
+        return searchCategories;
     }
 
     public String getSearchTerm() {
