@@ -1,5 +1,4 @@
 package com.example.GetSaucedApp.controllers;
-
 import com.example.GetSaucedApp.models.SearchForm;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +19,18 @@ public class SearchController {
     @Autowired
     private HotSauceDao hotSauceDao;
 
+    private SearchForm searchForm;
+
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {
         model.addAttribute("title", "Search the Sauces!");
+        model.addAttribute(new SearchForm());
 
         return "hot-sauces/search";
     }
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    public String searchHotSauces(@ModelAttribute @Valid SearchForm searchForm,
-                                  @RequestParam String searchBy,
-                                  @RequestParam String searchTerm,
+    public String searchHotSauces(@ModelAttribute @Valid SearchForm newSearchForm,
                                   Errors errors,
                                   Model model) {
 
@@ -42,6 +42,6 @@ public class SearchController {
             return "hot-sauces/search";
         }
 
-        return "redirect: /hot-sauces/results";
+        return "redirect:results";
     }
 }

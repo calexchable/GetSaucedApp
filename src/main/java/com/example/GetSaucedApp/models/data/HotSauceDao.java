@@ -11,4 +11,7 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface HotSauceDao extends CrudRepository<HotSauce, Integer>{
+
+
+
 }

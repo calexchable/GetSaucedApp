@@ -7,13 +7,14 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
-<form method="post" style="max-width:600px;">
+<form method="post" style="max-width:600px;" th:object="${searchForm}">
 
     <h2>Search: </h2>
 
     <div class="form-group">
         <label th:for="searchTerm">Please type a Search Term: </label>
-
+        <input class="form-control" th:field="*{searchTerm}" />
+        <span th:errors="*{searchTerm}" class="error"></span>
     </div>
 
     <input type="submit" value="Search" />
