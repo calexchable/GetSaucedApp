@@ -24,8 +24,7 @@ public class SauceController {
 
     @Autowired
     private HotSauceDao hotSauceDao;
-
-//TODO: WRITE CONTROLLER TO ACCESS AND INPUT THE THINGS.
+    
     // HOT SAUCES
     // Request Path to index: /hot-sauces
     @RequestMapping(value = "", method =RequestMethod.GET)
@@ -35,17 +34,6 @@ public class SauceController {
         model.addAttribute("title", "Get Sauced!");
 
         return "hot-sauces/index";
-    }
-
-
-    @RequestMapping(value = "results", method = RequestMethod.GET)
-
-    public String resultsHotSauces(@ModelAttribute @Valid SearchForm searchForm,
-                                   Model model, @RequestParam String searchTerm) {
-        model.addAttribute("title", "Search Results");
-        model.addAttribute("searchTerm", searchTerm);
-
-        return "hot-sauces/results";
     }
 
 //TODO Add a section for CASERA or Homemade sauces.

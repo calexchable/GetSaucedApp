@@ -18,7 +18,6 @@ public class SearchController {
 
     @Autowired
     private HotSauceDao hotSauceDao;
-
     private SearchForm searchForm;
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
@@ -30,7 +29,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    public String searchHotSauces(@ModelAttribute @Valid SearchForm newSearchForm,
+    public String searchHotSauces(@ModelAttribute @Valid SearchForm searchForm,
                                   Errors errors,
                                   Model model) {
 
@@ -43,5 +42,15 @@ public class SearchController {
         }
 
         return "redirect:results";
+    }
+
+    @RequestMapping(value = "results", method = RequestMethod.GET)
+    public String resultsHotSauces(Model model,
+                                   @RequestParam String searchBy,
+                                   @RequestParam String searchTerm,
+                                   @ModelAttribute SearchForm searchForm) {
+        model.addAttribute("title", "Search Results");
+
+        return "hot-sauces/results";
     }
 }
