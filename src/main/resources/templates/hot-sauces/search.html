@@ -12,6 +12,20 @@
     <h2>Search: </h2>
 
     <div class="form-group">
+        <label>Search By: </label>
+            <ul th:each="searchBy : *{searchCategories}">
+                <input type="radio"
+                       th:field="*{searchBy}"
+                       th:value="${searchBy}"
+                       th:checked="${searchCategories == searchBy}" />
+                <label th:for="${#ids.prev('searchBy')}"
+                       th:text="${searchBy}">
+
+                </label>
+            </ul>
+    </div>
+
+    <div class="form-group">
         <label th:for="searchTerm">Please type a Search Term: </label>
         <input class="form-control" th:field="*{searchTerm}" />
         <span th:errors="*{searchTerm}" class="error"></span>
