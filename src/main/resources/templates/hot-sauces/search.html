@@ -9,21 +9,14 @@
 
 <form method="post" style="max-width:600px;" th:object="${searchForm}">
 
-    <h2>Search: </h2>
-
-    <div>SET THIS UP AS A DROP LIST</div>
     <div class="form-group">
         <label>Search By: </label>
-            <ul th:each="searchBy : *{searchCategories}">
-                <input type="radio"
-                       th:field="*{searchBy}"
-                       th:value="${searchBy}"
-                       th:checked="${searchCategories == searchBy}" />
-                <label th:for="${#ids.prev('searchBy')}"
-                       th:text="${searchBy}">
-
-                </label>
-            </ul>
+        <select class="form-control" th:field="*{searchBy}">
+            <option value="">Search By:</option>
+            <option th:each="searchBy : *{searchCategories}"
+                    th:value="${searchBy}"
+                    th:text="${searchBy}"></option>
+        </select>
     </div>
 
     <div class="form-group">
