@@ -1,4 +1,5 @@
 package com.example.GetSaucedApp.controllers;
+import com.example.GetSaucedApp.models.SearchCategory;
 import com.example.GetSaucedApp.models.SearchForm;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +47,14 @@ public class SearchController {
 
     @RequestMapping(value = "results", method = RequestMethod.GET)
     public String resultsHotSauces(Model model,
-                                   @RequestParam String searchBy,
-                                   @RequestParam String searchTerm,
-                                   @ModelAttribute SearchForm searchForm) {
+//                                   @RequestParam String searchBy,
+//                                   @RequestParam String searchTerm,
+                                   @ModelAttribute SearchForm searchForm
+                                   ) {
         model.addAttribute("title", "Search Results");
+        model.addAttribute(searchForm);
+//        model.addAttribute("searchBy", searchBy);
+//        model.addAttribute("searchTerm", searchTerm);
 
         return "hot-sauces/results";
     }

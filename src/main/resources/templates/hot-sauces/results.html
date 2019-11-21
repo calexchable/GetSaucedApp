@@ -7,8 +7,10 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
+
 <div>Search Results:</div>
-<div th:text="${searchTerm}"></div>
+<div th:text="${searchForm.searchBy}"></div>
+<div th:text="${searchForm.searchTerm}"></div>
 
 </body>
 </html>

@@ -8,13 +8,14 @@ public enum SearchCategory {
     SPICE ("Spice"),
     ALL ("All");
 
-    private final String searchCat;
+    private final String name;
 
-    SearchCategory(String searchCat) {
-        this.searchCat = searchCat;
+    SearchCategory(String name) {
+        this.name = name;
     }
 
-    public String getSearchCat() {
-        return searchCat;
+    public String getName() {
+        return name;
     }
+
 }

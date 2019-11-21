@@ -7,12 +7,12 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
+<br>
 <form method="post" style="max-width:600px;" th:object="${searchForm}">
 
     <div class="form-group">
         <label>Search By: </label>
         <select class="form-control" th:field="*{searchBy}">
-            <option value="">Search By:</option>
             <option th:each="searchBy : *{searchCategories}"
                     th:value="${searchBy}"
                     th:text="${searchBy}"></option>
