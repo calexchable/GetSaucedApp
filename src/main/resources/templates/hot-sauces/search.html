@@ -1,33 +1,33 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
 
-<head th:replace="fragments :: head"></head>
+<!--<head th:replace="fragments :: head"></head>-->
 
-<body class="container">
-<h1 th:text="${title}">Default Title</h1>
-<nav th:replace="fragments :: hot-sauce-navigation"></nav>
+<!--<body class="container">-->
+<!--<h1 th:text="${title}">Default Title</h1>-->
+<!--<nav th:replace="fragments :: hot-sauce-navigation"></nav>-->
 
-<br>
-<form method="post" style="max-width:600px;" th:object="${searchForm}">
+<!--<br>-->
+<!--<form method="post" style="max-width:600px;" th:object="${searchForm}">-->
 
-    <div class="form-group">
-        <label>Search By: </label>
-        <select class="form-control" th:field="*{searchBy}">
-            <option th:each="searchBy : *{searchCategories}"
-                    th:value="${searchBy}"
-                    th:text="${searchBy}"></option>
-        </select>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label>Search By: </label>-->
+<!--        <select class="form-control" th:field="*{searchBy}">-->
+<!--            <option th:each="searchBy : *{searchCategories}"-->
+<!--                    th:value="${searchBy}"-->
+<!--                    th:text="${searchBy}"></option>-->
+<!--        </select>-->
+<!--    </div>-->
 
-    <div class="form-group">
-        <label th:for="searchTerm">Please type a Search Term: </label>
-        <input class="form-control" th:field="*{searchTerm}" />
-        <span th:errors="*{searchTerm}" class="error"></span>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label th:for="searchTerm">Please type a Search Term: </label>-->
+<!--        <input class="form-control" th:field="*{searchTerm}" />-->
+<!--        <span th:errors="*{searchTerm}" class="error"></span>-->
+<!--    </div>-->
 
-    <input type="submit" value="Search" />
+<!--    <input type="submit" value="Search" />-->
 
-</form>
+<!--</form>-->
 
 </body>
 </html>
