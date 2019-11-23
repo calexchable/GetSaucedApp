@@ -12,10 +12,11 @@ import javax.validation.constraints.Size;
 @Entity
 public class HotSauce {
 
-    // Fields: ID, NAME, DESCRIPTION, BRAND
+    //Fields
     @Id
     @GeneratedValue
     private int id;
+    private static int nextId = 1;
 
     @NotNull
     @Size(min=1, message = "Please enter the name of the hot sauce.")
@@ -40,14 +41,23 @@ public class HotSauce {
 
     //Constructors:
     public HotSauce(){
+        id = nextId;
+        nextId++;
     }
 
-    public HotSauce(String name, String description){
+    public HotSauce(String brand,
+                    String name,
+                    String description,
+                    Integer taste,
+                    Integer spice){
+        this.brand = brand;
         this.name = name;
         this.description = description;
+        this.taste = taste;
+        this.spice = spice;
 
     }
-    //Getters and Setters: ID, BRAND, NAME, DESCRIPTION
+    //Getters and Setters
     public int getId(){
         return id;
     }
