@@ -23,7 +23,7 @@ public class SearchController {
     @Autowired
     private HotSauceDao hotSauceDao;
 
-    private HotSauceData hotSauceData = HotSauceData.getSauceInstance();
+    private HotSauceData hotSauceData = HotSauceDao.getSauceInstance();
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {

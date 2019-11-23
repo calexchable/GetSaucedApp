@@ -10,6 +10,8 @@ public class HotSauceData {
     private static ArrayList<HotSauce> hotSauces = new ArrayList<>();
     private static HotSauceData sauceInstance;
 
+    private
+
     public static HotSauceData getSauceInstance() {
         if (sauceInstance == null) {
             sauceInstance = new HotSauceData();
