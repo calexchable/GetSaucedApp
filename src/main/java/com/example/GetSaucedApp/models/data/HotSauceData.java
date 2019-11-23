@@ -1,6 +1,7 @@
 package com.example.GetSaucedApp.models.data;
 
 import com.example.GetSaucedApp.models.HotSauce;
+import com.example.GetSaucedApp.models.SearchCategory;
 
 import java.util.ArrayList;
 
@@ -16,4 +17,25 @@ public class HotSauceData {
         return sauceInstance;
     }
 
+    public static ArrayList<HotSauce> findByValue(String value) {
+
+        ArrayList<HotSauce> matchingHotSauces = new ArrayList<>();
+
+        for (HotSauce hotSauce : hotSauces) {
+            if (hotSauce.getName().toLowerCase().contains(value)) {
+                matchingHotSauces.add(hotSauce);
+                continue;
+            }
+
+            for (SearchCategory column : SearchCategory.values()) {
+                if (column != SearchCategory.ALL && getFieldByType(hotSauce, column).contains(value)) {
+                    matchingHotSauces.add(hotSauce);
+                    break;
+                }
+            }
+        }
+        }
+        return matchingHotSauces;
+
+    }
 }

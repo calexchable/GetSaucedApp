@@ -54,7 +54,9 @@ public class SearchController {
 
         ArrayList<HotSauce> hotSauces;
 
-
+        if (searchForm.getSearchField().equals(SearchCategory.ALL)) {
+            hotSauces = HotSauceData.findByValue(searchForm.getKeyword());
+        }
 
         model.addAttribute("title", "Search Results");
         model.addAttribute("hotSauces", hotSauces);

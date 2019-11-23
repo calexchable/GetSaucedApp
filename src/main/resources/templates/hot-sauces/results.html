@@ -5,12 +5,41 @@
 
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
+
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
 <br>
 <div>Search Results:</div>
-<div th:text="${searchForm.searchBy}"></div>
-<div th:text="${searchForm.searchTerm}"></div>
+<br>
+<div th:unless="${hotSauces} and ${hotSauces.size()}">
+    <h2>No Results </h2>
+</div>
+
+<div th:fragment="sauces-list">
+    <div th:if="${hotSauces} and ${hotSauces.size()}">
+        <h3 th:text="${hotSauces.size() + 'Result(s)'}"></h3>
+
+        <table class = "table">
+            <tr>
+                <th>Brand: </th>
+                <th>Name: </th>
+                <th>Description: </th>
+                <th>Taste: </th>
+                <th>How Spicy!!!</th>
+            </tr>
+
+            <tr th:each="hotSauce : ${hotSauces}">
+                <td th:text="${hotSauce.brand}"></td>
+                <td th:text="${hotSauce.name}"></td>
+                <td th:text="${hotSauce.description}"></td>
+                <td th:text="${hotSauce.taste}"></td>
+                <td th:text="${hotSauce.spice}"></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
 
 </body>
 </html>
