@@ -4,8 +4,8 @@ public enum SearchCategory {
     BRAND ("Brand"),
     NAME ("Name"),
     DESCRIPTION ("Description"),
-    TASTE ("Taste"),
-    SPICE ("Spice"),
+//    TASTE ("Taste"),
+//    SPICE ("Spice"),
     ALL ("All");
 
     private final String name;

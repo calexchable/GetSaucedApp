@@ -57,7 +57,7 @@ public class HotSauce {
         this.spice = spice;
 
     }
-    //Getters and Setters
+    //Getters and Setters:
     public int getId(){
         return id;
     }

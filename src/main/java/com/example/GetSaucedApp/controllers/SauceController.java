@@ -35,11 +35,6 @@ public class SauceController {
 
         return "hot-sauces/index";
     }
-
-//TODO Add a section for CASERA or Homemade sauces.
-    //This will have location and attempt to have recipes.
-
-
 }
 
 
