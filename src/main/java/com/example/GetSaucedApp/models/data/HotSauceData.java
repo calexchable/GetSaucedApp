@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class HotSauceData {
 
-    private ArrayList<HotSauce> hotSauces = new ArrayList<>();
+    private static ArrayList<HotSauce> hotSauces = new ArrayList<>();
     private static HotSauceData sauceInstance;
 
     public static HotSauceData getSauceInstance() {
@@ -50,7 +50,11 @@ public class HotSauceData {
         throw new IllegalArgumentException("Cannot Access " + type);
     }
 
-    public ArrayList<HotSauce> findByColumnAndValue(SearchCategory column, String value) {
+    public static void setHotSauces(ArrayList<HotSauce> hotSauces) {
+        HotSauceData.hotSauces = hotSauces;
+    }
+
+    public static ArrayList<HotSauce> findByColumnAndValue(SearchCategory column, String value) {
         ArrayList<HotSauce> matchingHotSauces = new ArrayList<>();
 
         for (HotSauce hotSauce : hotSauces) {

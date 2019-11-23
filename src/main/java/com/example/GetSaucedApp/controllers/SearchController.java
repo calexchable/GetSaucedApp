@@ -1,4 +1,5 @@
 package com.example.GetSaucedApp.controllers;
+
 import com.example.GetSaucedApp.models.HotSauce;
 import com.example.GetSaucedApp.models.SearchCategory;
 import com.example.GetSaucedApp.models.SearchForm;
@@ -11,7 +12,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

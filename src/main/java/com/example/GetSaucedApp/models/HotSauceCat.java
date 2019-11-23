@@ -11,6 +11,7 @@ public class HotSauceCat {
         nextId++;
     }
 
+    //Constructors
     public HotSauceCat(String value) {
         this.value = value;
     }
