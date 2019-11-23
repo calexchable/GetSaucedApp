@@ -11,9 +11,8 @@ public class HotSauceCat {
         nextId++;
     }
 
-    public HotSauceCat(String aValue) {
-        this();
-        value = aValue;
+    public HotSauceCat(String value) {
+        this.value = value;
     }
 
     public boolean contains(String value) {

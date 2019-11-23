@@ -34,8 +34,31 @@ public class HotSauceData {
                 }
             }
         }
-        }
-        return matchingHotSauces;
 
+        return matchingHotSauces;
     }
+
+    private static String getFieldByType (HotSauce hotSauce, SearchCategory type) {
+        switch(type) {
+            case BRAND:
+                return hotSauce.getBrand();
+            case NAME:
+                return hotSauce.getName();
+            case DESCRIPTION:
+                return hotSauce.getDescription();
+        }
+        throw new IllegalArgumentException("Cannot Access " + type);
+    }
+
+    public ArrayList<HotSauce> findByColumnAndValue(SearchCategory column, String value) {
+        ArrayList<HotSauce> matchingHotSauces = new ArrayList<>();
+
+        for (HotSauce hotSauce : hotSauces) {
+            if (getFieldByType(hotSauce, column).contains(value))
+                matchingHotSauces.add(hotSauce);
+        }
+
+        return matchingHotSauces;
+    }
+
 }
