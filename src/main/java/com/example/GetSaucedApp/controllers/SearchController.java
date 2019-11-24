@@ -18,12 +18,11 @@ import java.util.ArrayList;
 
 @Controller
 @RequestMapping(value = "hot-sauces")
+
 public class SearchController {
 
     @Autowired
     private HotSauceDao hotSauceDao;
-
-    private HotSauceData hotSauceData = HotSauceDao.getSauceInstance();
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {
@@ -38,6 +37,7 @@ public class SearchController {
                                   Errors errors,
                                   Model model) {
         model.addAttribute("title", "Search the Sauces!");
+        model.addAttribute(new SearchForm());
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Try Searching the Sauces Again!");

@@ -8,7 +8,7 @@ public class SauceFieldData<T extends HotSauceCat> {
 
     private ArrayList<T> allFields = new ArrayList<>();
 
-    public ArrayList<T> findAll () {
+    public ArrayList<T> findAll() {
         return allFields;
     }
 

@@ -15,7 +15,7 @@
         <select class="form-control" th:field="*{searchField}">
             <option th:each="field : *{fields}"
                     th:value="${field}"
-                    th:text="${field}"></option>
+                    th:text="${field.name}"></option>
         </select>
     </div>
 
@@ -30,7 +30,6 @@
 </form>
 
 <hr />
-<!--<div th:replace="results :: sauces-list"></div>-->
 
 </body>
 </html>

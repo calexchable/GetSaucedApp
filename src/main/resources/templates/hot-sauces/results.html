@@ -9,37 +9,44 @@
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
 <br>
-<div>Search Results:</div>
-<br>
+
+
 <div th:unless="${hotSauces} and ${hotSauces.size()}">
-    <h2>No Results Found</h2>
-</div>
-
-<div th:fragment="sauces-list">
-    <div th:if="${hotSauces} and ${hotSauces.size()}">
-        <h3 th:text="${hotSauces.size() + 'Result(s)'}"></h3>
-
-        <table class = "table">
-            <tr>
-                <th>Brand: </th>
-                <th>Name: </th>
-                <th>Description: </th>
-                <th>Taste: </th>
-                <th>How Spicy!!!</th>
-            </tr>
-
-            <tr th:each="hotSauce : ${hotSauces}">
-                <td th:text="${hotSauce.brand}"></td>
-                <td th:text="${hotSauce.name}"></td>
-                <td th:text="${hotSauce.description}"></td>
-                <td th:text="${hotSauce.taste}"></td>
-                <td th:text="${hotSauce.spice}"></td>
-            </tr>
-
-        </table>
+    <h4>No Results Found</h4>
+    <h6>with search parameters: </h6>
+    <div class = "table" th:for="${searchForm}">
+        <h6 th:text="${field}"></h6>
+        <h6 th:text="${keyword}"></h6>
     </div>
+
+
+
 </div>
 
+<!--<div>-->
+<!--    <div th:if="${hotSauces} and ${hotSauces.size()}">-->
+<!--        <h3 th:text="${hotSauces.size() + 'Result(s)'}"></h3>-->
+
+<!--        <table class = "table">-->
+<!--            <tr>-->
+<!--                <th>Brand: </th>-->
+<!--                <th>Name: </th>-->
+<!--                <th>Description: </th>-->
+<!--                <th>Taste: </th>-->
+<!--                <th>How Spicy!!!</th>-->
+<!--            </tr>-->
+
+<!--            <tr th:each="hotSauce : ${hotSauces}">-->
+<!--                <td th:text="${hotSauce.brand}"></td>-->
+<!--                <td th:text="${hotSauce.name}"></td>-->
+<!--                <td th:text="${hotSauce.description}"></td>-->
+<!--                <td th:text="${hotSauce.taste}"></td>-->
+<!--                <td th:text="${hotSauce.spice}"></td>-->
+<!--            </tr>-->
+
+<!--        </table>-->
+<!--    </div>-->
+<!--</div>-->
 
 </body>
 </html>

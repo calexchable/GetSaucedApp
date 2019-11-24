@@ -2,15 +2,16 @@ package com.example.GetSaucedApp.models.data;
 
 import com.example.GetSaucedApp.models.HotSauce;
 import com.example.GetSaucedApp.models.SearchCategory;
+import org.springframework.context.annotation.Description;
 
+import javax.lang.model.element.Name;
 import java.util.ArrayList;
+import java.util.List;
 
 public class HotSauceData {
 
     private static ArrayList<HotSauce> hotSauces = new ArrayList<>();
     private static HotSauceData sauceInstance;
-
-    private
 
     public static HotSauceData getSauceInstance() {
         if (sauceInstance == null) {
