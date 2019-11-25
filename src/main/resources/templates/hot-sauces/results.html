@@ -14,7 +14,7 @@
 <div th:unless="${hotSauces} and ${hotSauces.size()}">
     <h4>No Results Found</h4>
     <h6>with search parameters: </h6>
-    <div class = "table" th:for="${searchForm}">
+    <div class = "table">
         <h6 th:text="${field}"></h6>
         <h6 th:text="${keyword}"></h6>
     </div>

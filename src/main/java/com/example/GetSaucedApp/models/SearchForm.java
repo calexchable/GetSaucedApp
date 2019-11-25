@@ -18,9 +18,8 @@ public class SearchForm {
 
     }
 
-    public SearchForm(SearchCategory searchBy,
-                      String keyword){
-        this.searchField = searchBy;
+    public SearchForm(SearchCategory searchField, String keyword){
+        this.searchField = searchField;
         this.keyword = keyword;
     }
 
