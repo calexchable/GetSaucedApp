@@ -1,35 +1,41 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <head th:replace="fragments :: head"></head>
 
 <body class="container">
+
 <h1 th:text="${title}">Default Title</h1>
+
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
-<br>
-<form method="post" style="max-width:600px;" th:object="${searchForm}">
+<div class="container body-content">
+    <form th:action="@{/results}" th:object="${searchForm}">
 
-    <div class="form-group">
-        <label>Search By: </label>
-        <select class="form-control" th:field="*{searchField}">
-            <option th:each="field : *{fields}"
-                    th:value="${field}"
-                    th:text="${field.name}"></option>
-        </select>
-    </div>
+        <div class="form-group">
+            <label>Search By: </label>
+            <select th:field="*{searchField}">
+                <option th:each="field : *{fields}" th:value="${field}" th:text="${field.name}"></option>
+            </select>
+        </div>
 
-    <div class="form-group">
-        <label th:for="keyword">Please type a Search Term: </label>
-        <input class="form-control" th:field="*{keyword}" />
-        <span th:errors="*{keyword}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="keyword">Please type a Search Term: </label>
+            <input class = "form-control" th:field="*{keyword}" />
+            <span th:errors="*{keyword}" class="error"></span>
+        </div>
 
-    <input type="submit" value="Search" />
+        <div>
+        <input type="submit" value="Search" />
+        </div>
 
-</form>
+    </form>
+</div>
 
 <hr />
+
+
 
 </body>
 </html>
