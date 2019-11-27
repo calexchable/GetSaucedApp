@@ -4,7 +4,6 @@ import com.example.GetSaucedApp.models.HotSauce;
 import com.example.GetSaucedApp.models.SearchCategory;
 import com.example.GetSaucedApp.models.SearchForm;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
-import com.example.GetSaucedApp.models.data.HotSauceData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,36 +32,35 @@ public class SearchController {
     }
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    public String searchHotSauces(@ModelAttribute @Valid SearchForm searchForm,
+    public String searchHotSauces(@ModelAttribute @Valid SearchForm newSearchForm,
                                   Errors errors,
                                   Model model) {
+
         model.addAttribute("title", "Search the Sauces!");
         model.addAttribute(new SearchForm());
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Try Searching the Sauces Again!");
-
             return "hot-sauces/search";
+
         }
 
         return "redirect:results";
     }
 
-    @RequestMapping(value = "results")
-    public String resultsHotSauces(Model model,
-                                   @ModelAttribute SearchForm searchForm) {
+    @RequestMapping(value = "results", method = RequestMethod.GET)
+    public String resultingHotSauces(Model model,
+                                  @ModelAttribute SearchForm searchFrom) {
 
-        ArrayList<HotSauce> hotSauces;
+        ArrayList<HotSauce> hotSauces = new ArrayList<>();
 
-        if (searchForm.getSearchField().equals(SearchCategory.ALL)) {
-            hotSauces = HotSauceData.findByValue(searchForm.getKeyword());
+        if (searchFrom.getSearchField().equals(SearchCategory.ALL)) {
+            hotSauceDao.findByValue(searchFrom.getKeyword());
         } else {
-            hotSauces = HotSauceData.findByColumnAndValue(searchForm.getSearchField(), searchForm.getKeyword());
+            hotSauceDao.findByColumnAndValue(searchFrom.getSearchField(), searchFrom.getKeyword());
         }
 
-        model.addAttribute("title", "Search Results");
-        model.addAttribute("hotSauces", hotSauces);
-
+        final Model hotSauces1 = model.addAttribute("hotSauces", hotSauces);
         return "hot-sauces/results";
     }
 }

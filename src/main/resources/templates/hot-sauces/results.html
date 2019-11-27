@@ -18,35 +18,32 @@
         <h6 th:text="${field}"></h6>
         <h6 th:text="${keyword}"></h6>
     </div>
-
-
-
 </div>
 
-<!--<div>-->
-<!--    <div th:if="${hotSauces} and ${hotSauces.size()}">-->
-<!--        <h3 th:text="${hotSauces.size() + 'Result(s)'}"></h3>-->
+<div>
+    <div th:if="${hotSauces} and ${hotSauces.size()}">
+        <h3 th:text="${hotSauces.size() + 'Result(s)'}"></h3>
 
-<!--        <table class = "table">-->
-<!--            <tr>-->
-<!--                <th>Brand: </th>-->
-<!--                <th>Name: </th>-->
-<!--                <th>Description: </th>-->
-<!--                <th>Taste: </th>-->
-<!--                <th>How Spicy!!!</th>-->
-<!--            </tr>-->
+        <table class = "table">
+            <tr>
+                <th>Brand: </th>
+                <th>Name: </th>
+                <th>Description: </th>
+                <th>Taste: </th>
+                <th>How Spicy!!!</th>
+            </tr>
 
-<!--            <tr th:each="hotSauce : ${hotSauces}">-->
-<!--                <td th:text="${hotSauce.brand}"></td>-->
-<!--                <td th:text="${hotSauce.name}"></td>-->
-<!--                <td th:text="${hotSauce.description}"></td>-->
-<!--                <td th:text="${hotSauce.taste}"></td>-->
-<!--                <td th:text="${hotSauce.spice}"></td>-->
-<!--            </tr>-->
+            <tr th:each="hotSauce : ${hotSauces}">
+                <td th:text="${hotSauce.brand}"></td>
+                <td th:text="${hotSauce.name}"></td>
+                <td th:text="${hotSauce.description}"></td>
+                <td th:text="${hotSauce.taste}"></td>
+                <td th:text="${hotSauce.spice}"></td>
+            </tr>
 
-<!--        </table>-->
-<!--    </div>-->
-<!--</div>-->
+        </table>
+    </div>
+</div>
 
 </body>
 </html>

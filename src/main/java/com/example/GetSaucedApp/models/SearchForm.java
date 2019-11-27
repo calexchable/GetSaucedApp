@@ -12,19 +12,7 @@ public class SearchForm {
     @Size(min=1, message = "Please enter a search term.")
     private String keyword;
 
-
-    //Constructors:
-    public SearchForm(){
-
-    }
-
-    public SearchForm(SearchCategory searchField, String keyword){
-        this.searchField = searchField;
-        this.keyword = keyword;
-    }
-
-    //Getters and Setters:
-    public SearchCategory getSearchField() {
+    public SearchCategory getSearchField(){
         return searchField;
     }
 

@@ -73,7 +73,6 @@ public class HotSauce {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -81,7 +80,6 @@ public class HotSauce {
     public String getBrand(){
         return brand;
     }
-
     public void setBrand(String brand){
         this.brand = brand;
     }
@@ -89,7 +87,6 @@ public class HotSauce {
     public Integer getTaste(){
         return taste;
     }
-
     public void setTaste(Integer taste){
         this.taste = taste;
     }
@@ -97,7 +94,6 @@ public class HotSauce {
     public Integer getSpice(){
         return spice;
     }
-
     public void setSpice(Integer spice){
         this.spice = spice;
     }
