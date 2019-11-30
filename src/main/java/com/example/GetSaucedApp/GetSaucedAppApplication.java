@@ -8,6 +8,7 @@ public class GetSaucedAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GetSaucedAppApplication.class, args);
+
 	}
 
 }

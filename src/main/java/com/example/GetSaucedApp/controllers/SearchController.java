@@ -1,7 +1,6 @@
 package com.example.GetSaucedApp.controllers;
 
 import com.example.GetSaucedApp.models.HotSauce;
-import com.example.GetSaucedApp.models.SearchCategory;
 import com.example.GetSaucedApp.models.SearchForm;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,13 +53,6 @@ public class SearchController {
 
         ArrayList<HotSauce> hotSauces = new ArrayList<>();
 
-        if (searchFrom.getSearchField().equals(SearchCategory.ALL)) {
-            hotSauceDao.findByValue(searchFrom.getKeyword());
-        } else {
-            hotSauceDao.findByColumnAndValue(searchFrom.getSearchField(), searchFrom.getKeyword());
-        }
-
-        final Model hotSauces1 = model.addAttribute("hotSauces", hotSauces);
         return "hot-sauces/results";
     }
 }
