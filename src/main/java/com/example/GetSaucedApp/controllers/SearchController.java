@@ -23,6 +23,7 @@ public class SearchController {
 
     @Autowired
     private HotSauceDao hotSauceDao;
+    private HotSauceDaoImpl hotSauceDaoImpl;
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {
@@ -53,14 +54,19 @@ public class SearchController {
     public String resultingHotSauces(Model model,
                                   @ModelAttribute SearchForm searchFrom) {
 
-        ArrayList<HotSauce> hotSauces = new ArrayList<>();
-
+        ArrayList<HotSauce> hotSauces;
         SearchForm searchForm = new SearchForm();
 
         if (searchForm.getSearchField().equals(SearchCategory.ALL)) {
-            hotSauces = HotSauceDaoImpl.findByValue(searchForm.getKeyword());
+            hotSauces = hotSauceDaoImpl.findByValue(searchForm.getSearchField(), searchForm.getKeyword());
 
+        } else {
+            hotSauces = hotSauceDaoImpl.findByColumnAndValue(searchForm.getSearchField(), searchForm.getKeyword());
         }
+
+        model.addAttribute("hotSauces", hotSauces);
+
+
 
         return "hot-sauces/results";
     }

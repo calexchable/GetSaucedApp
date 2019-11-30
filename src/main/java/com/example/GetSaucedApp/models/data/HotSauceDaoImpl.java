@@ -32,7 +32,22 @@ public abstract class HotSauceDaoImpl implements HotSauceDao {
         return hotSauce.get(description);
     }
 
-    public HotSauce findByValue(String value) {
+    public ArrayList<HotSauce> findByColumnAndValue(SearchCategory column, String value) {
+
+        ArrayList<HotSauce> matchingHotSauces = new ArrayList<>();
+
+        for (HotSauce hotSauce : hotSauce) {
+            if (getFieldByType(hotSauce, column).contains(value))
+                matchingHotSauces.add(hotSauce);
+
+        }
+
+        return matchingHotSauces;
+
+    }
+
+
+    public ArrayList<HotSauce> findByValue(SearchCategory searchField, String value) {
 
         ArrayList<HotSauce> matchingHotSauces = new ArrayList<>();
 
@@ -56,11 +71,7 @@ public abstract class HotSauceDaoImpl implements HotSauceDao {
 
     }
 
-    public void add(HotSauce hotSauce) {
-        hotSauce.add(hotSauce);
-    }
-
-    private static SearchCategory getFieldByType(HotSauce hotSauce, SearchCategory type) {
+    private static String getFieldByType(HotSauce hotSauce, SearchCategory type) {
         switch(type) {
             case BRAND:
                 return hotSauce.getBrand();

@@ -15,6 +15,9 @@ public enum SearchCategory {
     public String getName() {
         return name;
     }
-    
+
+    public boolean contains(String name) {
+        return this.name.toLowerCase().contains(name.toLowerCase());
+    }
 
 }
