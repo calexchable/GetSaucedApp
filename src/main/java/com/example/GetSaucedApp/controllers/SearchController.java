@@ -41,11 +41,11 @@ public class SearchController {
         model.addAttribute("title", "Search the Sauces!");
         model.addAttribute(new SearchForm());
 
-        if (errors.hasErrors()) {
-            model.addAttribute("title", "Try Searching the Sauces Again!");
-            return "hot-sauces/search";
-
-        }
+//        if (errors.hasErrors()) {
+//            model.addAttribute("title", "Try Searching the Sauces Again!");
+//            return "hot-sauces/search";
+//
+//        }
 
         return "redirect:results";
     }
