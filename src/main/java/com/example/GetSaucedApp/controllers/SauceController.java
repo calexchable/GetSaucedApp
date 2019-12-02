@@ -18,9 +18,7 @@ public class SauceController {
     @Autowired
     private HotSauceDao hotSauceDao;
 
-    // HOT SAUCES
-    // Request Path to index: /hot-sauces
-    @RequestMapping(value = "", method =RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model) {
 
         model.addAttribute("hotSauces", hotSauceDao.findAll());

@@ -16,9 +16,14 @@
     <div class="form-group">
         <label>Search By: </label>
         <select class="form-control" th:field="*{searchField}">
-            <option th:each="field : *{fields}"
-                    th:value="${field}"
-                    th:text="${field.name}"></option>
+            <option th:value="brand"
+                    th:text="Brand"></option>
+            <option th:value="name"
+                    th:text="Name"></option>
+            <option th:value="description"
+                    th:text="Description"></option>
+            <option th:value="all"
+                    th:text="All"></option>
         </select>
     </div>
 
