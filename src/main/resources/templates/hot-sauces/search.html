@@ -10,27 +10,29 @@
 
 <nav th:replace="fragments :: hot-sauce-navigation"></nav>
 
-<div class="container body-content">
-    <form th:action="@{/hot-sauces/results}" th:object="${searchForm}">
 
-        <div class="form-group">
-            <label>Search By: </label>
-            <select th:field="*{searchField}">
-                <option th:each="field : *{fields}" th:value="${field}" th:text="${field.name}"></option>
-            </select>
-        </div>
+<form method="post" style="max-width:600px;" th:object="${searchForm}">
 
-        <div class="form-group">
-            <label th:for="keyword">Please type a Search Term: </label>
-            <input class = "form-control" th:field="*{keyword}" />
-            <span th:errors="*{keyword}" class="error"></span>
-        </div>
+    <div class="form-group">
+        <label>Search By: </label>
+        <select class="form-control" th:field="*{searchField}">
+            <option th:each="field : *{fields}"
+                    th:value="${field}"
+                    th:text="${field.name}"></option>
+        </select>
+    </div>
 
-        <div>
-        <input type="submit" value="Search" />
-        </div>
+    <div class="form-group">
+        <label th:for="keyword">Please type a Search Term: </label>
+        <input class="form-control" th:field="*{keyword}" />
+        <span th:errors="*{keyword}" class="error"></span>
+    </div>
 
-    </form>
-</div>
+    <input type="submit" value="Search" />
+
+</form>
+
+<hr />
+
 </body>
 </html>
