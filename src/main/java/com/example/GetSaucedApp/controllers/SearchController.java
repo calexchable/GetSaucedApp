@@ -1,5 +1,6 @@
 package com.example.GetSaucedApp.controllers;
 
+import com.example.GetSaucedApp.models.HotSauce;
 import com.example.GetSaucedApp.models.SearchForm;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
 import com.example.GetSaucedApp.models.data.HotSauceDaoImpl;
@@ -22,9 +23,10 @@ public class SearchController {
     private HotSauceDao hotSauceDao;
 
     private SearchForm searchForm;
-//    @Autowired
-//    The Autowire did something to the program where I was not able to bootRun the thing (needed to do something else... don't remember //
+
     private HotSauceDaoImpl hotSauceDaoImpl;
+
+    private HotSauce hotSauce;
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchHotSauces(Model model) {

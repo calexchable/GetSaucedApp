@@ -11,9 +11,9 @@ import java.util.List;
 /**
  * Created by Christopher Alex Chable'
  */
+
 @Repository
 @Transactional
-
 public interface HotSauceDao extends CrudRepository<HotSauce, Integer>{
 
     List<HotSauce> findAll();

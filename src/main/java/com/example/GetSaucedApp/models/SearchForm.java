@@ -4,10 +4,6 @@ import javax.validation.constraints.Size;
 
 public class SearchForm {
 
-    //Search By Options
-//    private SearchCategory[] fields = SearchCategory.values();
-//    private SearchCategory searchField = SearchCategory.ALL;
-
     private String searchField;
 
     // Keyword search string
@@ -18,24 +14,11 @@ public class SearchForm {
 
     }
 
-
-//    public SearchCategory getSearchField(){
-//        return searchField;
-//    }
-
     public SearchForm(String searchField,
                       String keyword) {
         this.searchField = searchField;
         this.keyword = keyword;
     }
-
-//    public void setSearchField(SearchCategory searchField) {
-//        this.searchField = searchField;
-//    }
-//
-//    public SearchCategory[] getFields() {
-//        return fields;
-//    }
 
     public String getSearchField() {
         return searchField;

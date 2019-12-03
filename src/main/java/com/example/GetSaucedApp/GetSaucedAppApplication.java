@@ -13,7 +13,7 @@ public class GetSaucedAppApplication {
 
 		SpringApplication.run(GetSaucedAppApplication.class, args);
 
-		HotSauceDao hotSauceDao = new HotSauceDaoImpl();
+//		HotSauceDao hotSauceDao = new HotSauceDaoImpl();
 
 	}
 

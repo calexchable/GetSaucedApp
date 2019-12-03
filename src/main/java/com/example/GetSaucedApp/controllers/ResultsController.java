@@ -59,32 +59,3 @@ public class ResultsController {
         return "hot-sauces/results";
     }
 }
-
-
-
-
-    //    @RequestMapping(value = "results")
-//    public String resultingHotSauces(Model model) {
-//
-//        ArrayList<HotSauce> hotSauces = new ArrayList<>();
-//
-//        model.addAttribute("title", "Check out your search results!");
-//        model.addAttribute("hotSauces", hotSauces);
-//
-//        SearchForm searchForm = new SearchForm();
-//
-//        if (searchForm.getSearchField().equals(SearchCategory.ALL)) {
-//            hotSauces = hotSauceDaoImpl.findByValue(searchForm.getSearchField(), searchForm.getKeyword());
-//
-//        } else {
-//            hotSauces = hotSauceDaoImpl.findByColumnAndValue(searchForm.getSearchField(), searchForm.getKeyword());
-//        }
-//
-//        model.addAttribute("hotSauces", hotSauces);
-//
-//
-//
-//        return "hot-sauces/results";
-//    }
-//}
-
