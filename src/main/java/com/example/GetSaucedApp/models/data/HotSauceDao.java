@@ -16,7 +16,8 @@ import java.util.List;
 public interface HotSauceDao extends CrudRepository<HotSauce, Integer>{
 
     List<HotSauce> findAll();
-    HotSauce getByBrand(int brand);
-    HotSauce getByName(int name);
-    HotSauce getByDescription(int description);
+
+    HotSauce getByBrand(String brand);
+    HotSauce getByName(String name);
+    HotSauce getByDescription(String description);
 }

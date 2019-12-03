@@ -24,6 +24,10 @@
 <div>
     <div th:if="${hotSauces} and ${hotSauces.size()}">
         <h3 th:text="${hotSauces.size() + 'Result(s)'}"></h3>
+        <div th:for="${searchForm}">
+            <h6 th:text="${searchForm.getSearchField()}"></h6>
+            <h6 th:text="${searchForm.getKeyword()}"></h6>
+        </div>
 
         <table class = "table">
             <tr>
