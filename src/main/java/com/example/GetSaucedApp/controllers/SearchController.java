@@ -21,6 +21,7 @@ public class SearchController {
     @Autowired
     private HotSauceDao hotSauceDao;
 
+    private SearchForm searchForm;
 //    @Autowired
 //    The Autowire did something to the program where I was not able to bootRun the thing (needed to do something else... don't remember //
     private HotSauceDaoImpl hotSauceDaoImpl;
@@ -43,7 +44,7 @@ public class SearchController {
             return "hot-sauces/search";
         }
 
-//        model.addAttribute(new SearchForm());
+        model.addAttribute("searchForm", searchForm);
         return "redirect:results";
     }
 }
