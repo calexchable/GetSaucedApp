@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public interface HotSauceDao extends CrudRepository<HotSauce, Integer>{
 
     List<HotSauce> findAll();
 
-    HotSauce getByBrand(String brand);
-    HotSauce getByName(String name);
-    HotSauce getByDescription(String description);
+    ArrayList<HotSauce> getByBrand(String brand);
+    ArrayList<HotSauce> getByName(String name);
+    ArrayList<HotSauce> getByDescription(String description);
 }

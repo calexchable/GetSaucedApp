@@ -38,17 +38,17 @@ public class ResultsController {
 
 
         if (searchForm.getSearchField().equals("brand")) {
-            hotSauces = hotSauceDaoImpl.findByBrand(searchForm.getKeyword());
+            hotSauces = hotSauceDaoImpl.getByBrand(searchForm.getKeyword());
 
 //        }
 
         } else if (searchForm.getSearchField().equals("name")) {
-            hotSauces = hotSauceDaoImpl.findByName(searchForm.getKeyword());
+            hotSauces = hotSauceDaoImpl.getByName(searchForm.getKeyword());
 
         } else
 //            if (searchForm.getSearchField().equals("description"))
             {
-            hotSauces = hotSauceDaoImpl.findByDescription(searchForm.getKeyword());
+            hotSauces = hotSauceDaoImpl.getByDescription(searchForm.getKeyword());
 
         }
 

@@ -11,7 +11,7 @@ public abstract class HotSauceDaoImpl implements HotSauceDao {
 
     private List<HotSauce> hotSauce;
 
-    private static HotSauceDaoImpl instance;
+//    private static HotSauceDaoImpl instance;
 
     public HotSauceDaoImpl() {
         hotSauce = new ArrayList<>();
@@ -36,7 +36,8 @@ public abstract class HotSauceDaoImpl implements HotSauceDao {
 //
 //    }
 
-    public ArrayList<HotSauce> findByBrand(String value) {
+    @Override
+    public ArrayList<HotSauce> getByBrand(String value) {
 
         ArrayList<HotSauce> matchingHotSauces = new ArrayList<>();
 
@@ -48,7 +49,8 @@ public abstract class HotSauceDaoImpl implements HotSauceDao {
         return matchingHotSauces;
     }
 
-    public ArrayList<HotSauce> findByName(String value) {
+    @Override
+    public ArrayList<HotSauce> getByName(String value) {
 
         ArrayList<HotSauce> matchingHotSauces = new ArrayList<>();
 
@@ -60,7 +62,8 @@ public abstract class HotSauceDaoImpl implements HotSauceDao {
         return matchingHotSauces;
     }
 
-    public ArrayList<HotSauce> findByDescription(String value) {
+    @Override
+    public ArrayList<HotSauce> getByDescription(String value) {
 
         ArrayList<HotSauce> matchingHotSauces = new ArrayList<>();
 
