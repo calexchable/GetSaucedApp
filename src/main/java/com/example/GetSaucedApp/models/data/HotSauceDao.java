@@ -18,7 +18,8 @@ public interface HotSauceDao extends CrudRepository<HotSauce, Integer>{
 
     List<HotSauce> findAll();
 
-    ArrayList<HotSauce> getByBrand(String brand);
-    ArrayList<HotSauce> getByName(String name);
-    ArrayList<HotSauce> getByDescription(String description);
+    ArrayList<HotSauce> findByBrand(String brand);
+    ArrayList<HotSauce> findByName(String name);
+    ArrayList<HotSauce> findByDescription(String description);
+
 }

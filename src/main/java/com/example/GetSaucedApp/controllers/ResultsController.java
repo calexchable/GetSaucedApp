@@ -3,7 +3,6 @@ package com.example.GetSaucedApp.controllers;
 import com.example.GetSaucedApp.models.HotSauce;
 import com.example.GetSaucedApp.models.SearchForm;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
-import com.example.GetSaucedApp.models.data.HotSauceDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +19,7 @@ public class ResultsController {
     @Autowired
     private HotSauceDao hotSauceDao;
 
-    private HotSauceDaoImpl hotSauceDaoImpl;
+//    private HotSauceDaoImpl hotSauceDaoImpl;
 
     @RequestMapping(value = "results", method = RequestMethod.GET)
     public String results(Model model,
@@ -30,25 +29,25 @@ public class ResultsController {
 
 // Currently this function is turned off //
 // at the results page -- turned off option //
+
 //        if (searchForm.getSearchField().equals("all")) {
 //            hotSauces = hotSauceDaoImpl.findByValue(searchForm.getKeyword());
 //
 //        } else
 
 
+// Not Working right //
 
         if (searchForm.getSearchField().equals("brand")) {
-            hotSauces = hotSauceDaoImpl.getByBrand(searchForm.getKeyword());
-
-//        }
+            hotSauces = hotSauceDao.findByBrand(searchForm.getKeyword());
 
         } else if (searchForm.getSearchField().equals("name")) {
-            hotSauces = hotSauceDaoImpl.getByName(searchForm.getKeyword());
+            hotSauces = hotSauceDao.findByName(searchForm.getKeyword());
 
         } else
-//            if (searchForm.getSearchField().equals("description"))
+            if (searchForm.getSearchField().equals("description"))
             {
-            hotSauces = hotSauceDaoImpl.getByDescription(searchForm.getKeyword());
+            hotSauces = hotSauceDao.findByDescription(searchForm.getKeyword());
 
         }
 

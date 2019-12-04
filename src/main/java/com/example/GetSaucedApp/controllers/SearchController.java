@@ -3,7 +3,6 @@ package com.example.GetSaucedApp.controllers;
 import com.example.GetSaucedApp.models.HotSauce;
 import com.example.GetSaucedApp.models.SearchForm;
 import com.example.GetSaucedApp.models.data.HotSauceDao;
-import com.example.GetSaucedApp.models.data.HotSauceDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +23,7 @@ public class SearchController {
 
     private SearchForm searchForm;
 
-    private HotSauceDaoImpl hotSauceDaoImpl;
+//    private HotSauceDaoImpl hotSauceDaoImpl;
 
     private HotSauce hotSauce;
 
