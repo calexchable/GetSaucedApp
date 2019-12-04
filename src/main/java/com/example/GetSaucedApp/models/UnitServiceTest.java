@@ -1,6 +1,5 @@
 package com.example.GetSaucedApp.models;
 
-import com.example.GetSaucedApp.models.User;
 import com.example.GetSaucedApp.models.data.RoleRepository;
 import com.example.GetSaucedApp.models.data.UserRepository;
 import org.junit.Before;
@@ -29,13 +28,11 @@ public class UserServiceTest {
     @Before
     public void setUp() {
         initMocks(this);
-        userServiceUnderTest = new UserService(mockUserRepository,
-                mockRoleRepository,
-                mockBCryptPasswordEncoder);
+        userServiceUnderTest = new UserService(mockUserRepository, mockRoleRepository, mockBCryptPasswordEncoder);
         user = User.builder()
                 .id(1)
-                .name("Gustavo")
-                .lastName("Ponce")
+                .name("Christo")
+                .lastName("Chable")
                 .email("test@test.com")
                 .build();
 
