@@ -21,6 +21,7 @@ public class AddController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String addHotSauces(Model model) {
+
         model.addAttribute("title","Add Hot Sauce");
         model.addAttribute(new HotSauce());
 
@@ -31,6 +32,7 @@ public class AddController {
     public String addHotSauces(@ModelAttribute @Valid HotSauce newHotSauce,
                                Errors errors,
                                Model model) {
+
         if (errors.hasErrors()) {
             model.addAttribute("title", "Try Again to Add Hot Sauce");
             return "hot-sauces/add";
