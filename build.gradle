@@ -17,6 +17,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
@@ -26,8 +27,12 @@ dependencies {
 	implementation 'mysql:mysql-connector-java'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.projectlombok:lombok'
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'org.projectlombok:lombok'
+//	testImplementation 'junit:junit:4.12'
+//	implementation 'junit:junit:4.12'
+//	testImplementation 'org.mockito:mockito-core:2.7.22'
+
 }
 
 test {
